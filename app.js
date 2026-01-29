@@ -20,6 +20,7 @@ const soundToggle = document.getElementById('sound-toggle');
 const qrToggle = document.getElementById('qr-toggle');
 const qrPopup = document.getElementById('qr-popup');
 const qrCanvas = document.getElementById('qr-canvas');
+const DEPLOYED_URL = 'https://datta4549.github.io/egg-timer/';
 
 // Timer State
 let selectedTime = 0;
@@ -549,3 +550,4 @@ eggOptions.forEach(option => {
 
 init();
 console.log('🎮 EGG MASTER loaded! Press 1, 2, or 3 to select, SPACE to start!');
+
