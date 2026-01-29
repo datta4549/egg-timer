@@ -1,0 +1,1307 @@
+/* ===== CSS Variables & Base - ANIME ARCADE THEME ===== */
+:root {
+    --bg-primary: #0a0a1a;
+    --bg-secondary: #1a0a2e;
+    --neon-pink: #ff2d95;
+    --neon-cyan: #00f5ff;
+    --neon-purple: #b347ff;
+    --neon-yellow: #ffea00;
+    --neon-orange: #ff6e27;
+    --neon-green: #39ff14;
+    --egg-white: #fff8e7;
+    --egg-shell: #ffe4c4;
+    --yolk-soft: #ffd700;
+    --yolk-medium: #ff8c00;
+    --yolk-hard: #cd853f;
+    --pot-color: #8b5cf6;
+    --pot-dark: #6d28d9;
+    --water-color: rgba(0, 245, 255, 0.5);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.8);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 45, 149, 0.3);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ===== Anime Arcade Background ===== */
+.background-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 20% 20%, rgba(255, 45, 149, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(0, 245, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(179, 71, 255, 0.1) 0%, transparent 70%),
+        linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+/* Animated Stars */
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s ease-in-out infinite;
+    box-shadow: 0 0 6px #fff, 0 0 12px var(--neon-cyan);
+}
+
+.star:nth-child(1) {
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.star:nth-child(2) {
+    top: 20%;
+    left: 80%;
+    animation-delay: 0.3s;
+}
+
+.star:nth-child(3) {
+    top: 35%;
+    left: 25%;
+    animation-delay: 0.6s;
+}
+
+.star:nth-child(4) {
+    top: 45%;
+    left: 90%;
+    animation-delay: 0.9s;
+}
+
+.star:nth-child(5) {
+    top: 60%;
+    left: 10%;
+    animation-delay: 1.2s;
+}
+
+.star:nth-child(6) {
+    top: 75%;
+    left: 70%;
+    animation-delay: 1.5s;
+}
+
+.star:nth-child(7) {
+    top: 85%;
+    left: 40%;
+    animation-delay: 1.8s;
+}
+
+.star:nth-child(8) {
+    top: 15%;
+    left: 55%;
+    animation-delay: 0.4s;
+}
+
+.star:nth-child(9) {
+    top: 55%;
+    left: 65%;
+    animation-delay: 0.7s;
+}
+
+.star:nth-child(10) {
+    top: 90%;
+    left: 85%;
+    animation-delay: 1s;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* Pixel Art Decorations */
+.pixel-egg {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background: var(--egg-white);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: float-pixel 4s ease-in-out infinite;
+    opacity: 0.2;
+    box-shadow: 0 0 15px var(--neon-pink);
+}
+
+.pixel-egg:nth-child(11) {
+    top: 20%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.pixel-egg:nth-child(12) {
+    top: 70%;
+    left: 95%;
+    animation-delay: 1s;
+    transform: scale(0.7);
+}
+
+.pixel-egg:nth-child(13) {
+    top: 40%;
+    left: 3%;
+    animation-delay: 2s;
+    transform: scale(0.5);
+}
+
+@keyframes float-pixel {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+/* Neon Grid Lines */
+.grid-line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, var(--neon-purple), transparent);
+    height: 1px;
+    width: 100%;
+    opacity: 0.1;
+    animation: scan-line 8s linear infinite;
+}
+
+.grid-line:nth-child(14) {
+    top: 25%;
+    animation-delay: 0s;
+}
+
+.grid-line:nth-child(15) {
+    top: 50%;
+    animation-delay: 2s;
+}
+
+.grid-line:nth-child(16) {
+    top: 75%;
+    animation-delay: 4s;
+}
+
+@keyframes scan-line {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Floating Sparkles */
+.sparkle {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: sparkle-float 6s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+.sparkle:nth-child(17) {
+    top: 15%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.sparkle:nth-child(18) {
+    top: 30%;
+    left: 75%;
+    animation-delay: 1s;
+}
+
+.sparkle:nth-child(19) {
+    top: 65%;
+    left: 15%;
+    animation-delay: 2s;
+}
+
+.sparkle:nth-child(20) {
+    top: 80%;
+    left: 60%;
+    animation-delay: 3s;
+}
+
+@keyframes sparkle-float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+/* Steam Effects */
+.steam {
+    position: absolute;
+    width: 30px;
+    height: 80px;
+    background: linear-gradient(to top, rgba(0, 245, 255, 0.2), transparent);
+    border-radius: 50%;
+    animation: steam-rise 2.5s ease-out infinite;
+    opacity: 0;
+    filter: blur(5px);
+}
+
+.steam-1 {
+    left: calc(50% - 40px);
+    top: 25%;
+}
+
+.steam-2 {
+    left: 50%;
+    top: 25%;
+    animation-delay: 0.8s;
+}
+
+.steam-3 {
+    left: calc(50% + 40px);
+    top: 25%;
+    animation-delay: 1.6s;
+}
+
+@keyframes steam-rise {
+    0% {
+        transform: translateY(0) scaleX(0.5);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-120px) scaleX(1.5);
+        opacity: 0;
+    }
+}
+
+/* ===== Container ===== */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Header - Arcade Style ===== */
+header {
+    text-align: center;
+    padding: 30px 0;
+}
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.8rem;
+    background: linear-gradient(180deg, var(--neon-yellow) 0%, var(--neon-orange) 50%, var(--neon-pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    animation: arcade-title 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px var(--neon-pink)) drop-shadow(0 0 40px var(--neon-orange));
+    letter-spacing: 2px;
+}
+
+@keyframes arcade-title {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 20px var(--neon-pink)) drop-shadow(0 0 40px var(--neon-orange));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 30px var(--neon-cyan)) drop-shadow(0 0 60px var(--neon-purple));
+        transform: scale(1.02);
+    }
+}
+
+.subtitle {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    color: var(--neon-cyan);
+    margin-top: 15px;
+    text-shadow: 0 0 10px var(--neon-cyan);
+    letter-spacing: 1px;
+    animation: subtitle-pulse 2s ease-in-out infinite;
+}
+
+@keyframes subtitle-pulse {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ===== Main Content ===== */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+/* ===== Egg Container & Pot - Arcade Style ===== */
+.egg-container {
+    position: relative;
+    width: 220px;
+    height: 200px;
+    margin: 10px 0;
+}
+
+.pot {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 110px;
+    background: linear-gradient(180deg, var(--pot-color) 0%, var(--pot-dark) 100%);
+    border-radius: 15px 15px 50px 50px;
+    box-shadow:
+        0 0 30px rgba(139, 92, 246, 0.5),
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        inset 0 -10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 5px 15px rgba(255, 255, 255, 0.2);
+    border: 3px solid var(--neon-purple);
+}
+
+.pot-water {
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    right: 12px;
+    height: 55px;
+    background: linear-gradient(180deg, var(--water-color), rgba(0, 200, 255, 0.3));
+    border-radius: 8px 8px 40px 40px;
+    overflow: hidden;
+    animation: water-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes water-shimmer {
+
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.3);
+    }
+}
+
+.water-bubble {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), var(--neon-cyan));
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.pot-handle-left,
+.pot-handle-right {
+    position: absolute;
+    top: 25px;
+    width: 30px;
+    height: 18px;
+    background: var(--pot-dark);
+    border-radius: 8px;
+    border: 2px solid var(--neon-purple);
+    box-shadow: 0 0 10px var(--neon-purple);
+}
+
+.pot-handle-left {
+    left: -25px;
+}
+
+.pot-handle-right {
+    right: -25px;
+}
+
+/* ===== Egg - Anime Style ===== */
+.egg {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65px;
+    height: 85px;
+    z-index: 10;
+    filter: drop-shadow(0 0 15px var(--neon-cyan));
+}
+
+.egg-shell {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, #ffffff 0%, var(--egg-white) 40%, var(--egg-shell) 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.3),
+        inset -8px -8px 20px rgba(0, 0, 0, 0.1),
+        inset 8px 8px 20px rgba(255, 255, 255, 0.9);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.egg-highlight {
+    position: absolute;
+    top: 12%;
+    left: 18%;
+    width: 18px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    filter: blur(4px);
+}
+
+/* Anime sparkle on egg */
+.egg::before {
+    content: '✨';
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    font-size: 1.2rem;
+    animation: egg-sparkle 1.5s ease-in-out infinite;
+    opacity: 0;
+}
+
+.egg:hover::before,
+.egg.cooking::before {
+    opacity: 1;
+}
+
+@keyframes egg-sparkle {
+
+    0%,
+    100% {
+        transform: scale(0.8) rotate(-10deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2) rotate(10deg);
+        opacity: 1;
+    }
+}
+
+.egg-yolk {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+    background: radial-gradient(circle at 35% 35%, var(--neon-yellow), var(--yolk-soft));
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--neon-yellow);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.yolk-shine {
+    position: absolute;
+    top: 18%;
+    left: 22%;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+}
+
+/* Egg cooking states */
+.egg.cooking {
+    animation: egg-bobble 0.4s ease-in-out infinite;
+}
+
+.egg.cooking .egg-yolk {
+    opacity: 0.9;
+    animation: yolk-pulse 0.8s ease-in-out infinite;
+}
+
+@keyframes yolk-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px var(--neon-yellow);
+    }
+
+    50% {
+        box-shadow: 0 0 30px var(--neon-orange);
+    }
+}
+
+.egg.soft .egg-yolk {
+    background: radial-gradient(circle at 35% 35%, #fff700, var(--neon-yellow));
+    box-shadow: 0 0 25px var(--neon-yellow);
+    opacity: 1;
+}
+
+.egg.medium .egg-yolk {
+    background: radial-gradient(circle at 35% 35%, var(--neon-yellow), var(--neon-orange));
+    box-shadow: 0 0 25px var(--neon-orange);
+    opacity: 1;
+}
+
+.egg.hard .egg-yolk {
+    background: radial-gradient(circle at 35% 35%, var(--yolk-medium), var(--yolk-hard));
+    box-shadow: 0 0 20px var(--yolk-medium);
+    opacity: 1;
+}
+
+@keyframes egg-bobble {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-8px) rotate(3deg);
+    }
+}
+
+/* Boiling animation */
+.pot.boiling .water-bubble {
+    animation: bubble-up 1.2s ease-out infinite;
+}
+
+.pot.boiling .pot-water {
+    animation: water-boil 0.5s ease-in-out infinite;
+}
+
+@keyframes water-boil {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(1.05);
+    }
+}
+
+.wb-1 {
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.wb-2 {
+    left: 35%;
+    animation-delay: 0.25s;
+}
+
+.wb-3 {
+    left: 55%;
+    animation-delay: 0.5s;
+}
+
+.wb-4 {
+    left: 75%;
+    animation-delay: 0.75s;
+}
+
+@keyframes bubble-up {
+    0% {
+        bottom: 5px;
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 100%;
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+/* ===== Timer Display - Arcade Style ===== */
+.timer-display {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.timer-circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+    filter: drop-shadow(0 0 15px var(--neon-pink));
+}
+
+.progress-ring-bg {
+    fill: none;
+    stroke: rgba(255, 45, 149, 0.2);
+    stroke-width: 10;
+}
+
+.progress-ring-circle {
+    fill: none;
+    stroke: url(#progress-gradient);
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 565.48;
+    stroke-dashoffset: 565.48;
+    transition: stroke-dashoffset 0.3s ease;
+    filter: drop-shadow(0 0 8px var(--neon-pink));
+}
+
+.timer-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.time {
+    display: block;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    color: var(--neon-cyan);
+    text-shadow:
+        0 0 10px var(--neon-cyan),
+        0 0 20px var(--neon-cyan),
+        0 0 40px var(--neon-cyan);
+    animation: time-flicker 0.1s ease-in-out infinite alternate;
+}
+
+@keyframes time-flicker {
+    from {
+        opacity: 0.95;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.status {
+    display: block;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    color: var(--neon-pink);
+    margin-top: 10px;
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* ===== Egg Options - Arcade Buttons ===== */
+.egg-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 380px;
+}
+
+.egg-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 22px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(179, 71, 255, 0.1));
+    border: 2px solid var(--neon-purple);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    font-family: inherit;
+}
+
+.egg-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.2), transparent);
+    transition: left 0.4s ease;
+}
+
+.egg-option:hover::before {
+    left: 100%;
+}
+
+.egg-option:hover {
+    transform: translateX(8px) scale(1.02);
+    border-color: var(--neon-cyan);
+    box-shadow:
+        0 0 20px rgba(0, 245, 255, 0.3),
+        inset 0 0 20px rgba(0, 245, 255, 0.1);
+}
+
+.egg-option.selected {
+    background: linear-gradient(135deg, rgba(255, 45, 149, 0.3), rgba(179, 71, 255, 0.2));
+    border-color: var(--neon-pink);
+    box-shadow:
+        0 0 30px rgba(255, 45, 149, 0.4),
+        inset 0 0 30px rgba(255, 45, 149, 0.1);
+    animation: selected-pulse 1s ease-in-out infinite;
+}
+
+@keyframes selected-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 25px rgba(255, 45, 149, 0.3), inset 0 0 25px rgba(255, 45, 149, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(255, 45, 149, 0.5), inset 0 0 40px rgba(255, 45, 149, 0.15);
+    }
+}
+
+.option-icon {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 0 10px var(--neon-yellow));
+}
+
+.option-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.option-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.65rem;
+    color: var(--text-primary);
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.option-time {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    color: var(--neon-yellow);
+    text-shadow: 0 0 8px var(--neon-yellow);
+}
+
+.option-desc {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-left: auto;
+    font-style: italic;
+}
+
+/* ===== Controls - Arcade Buttons ===== */
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    border: 3px solid;
+    border-radius: 12px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.btn:active::after {
+    width: 200%;
+    height: 200%;
+}
+
+.btn-start {
+    background: linear-gradient(180deg, var(--neon-green) 0%, #22c55e 100%);
+    border-color: var(--neon-green);
+    color: #000;
+    box-shadow:
+        0 0 20px rgba(57, 255, 20, 0.5),
+        0 6px 0 #166534,
+        inset 0 2px 10px rgba(255, 255, 255, 0.3);
+    text-shadow: none;
+}
+
+.btn-start:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow:
+        0 0 35px rgba(57, 255, 20, 0.7),
+        0 9px 0 #166534,
+        inset 0 2px 10px rgba(255, 255, 255, 0.3);
+}
+
+.btn-start:active:not(:disabled) {
+    transform: translateY(3px);
+    box-shadow:
+        0 0 20px rgba(57, 255, 20, 0.5),
+        0 2px 0 #166534;
+}
+
+.btn-start:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+}
+
+.btn-reset {
+    background: linear-gradient(180deg, var(--neon-purple) 0%, #7c3aed 100%);
+    border-color: var(--neon-purple);
+    color: var(--text-primary);
+    box-shadow:
+        0 0 20px rgba(179, 71, 255, 0.4),
+        0 6px 0 #5b21b6,
+        inset 0 2px 10px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 5px var(--neon-purple);
+}
+
+.btn-reset:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 0 35px rgba(179, 71, 255, 0.6),
+        0 9px 0 #5b21b6;
+}
+
+.btn-reset:active {
+    transform: translateY(3px);
+    box-shadow: 0 0 20px rgba(179, 71, 255, 0.4), 0 2px 0 #5b21b6;
+}
+
+.btn-primary {
+    background: linear-gradient(180deg, var(--neon-cyan) 0%, #0891b2 100%);
+    border-color: var(--neon-cyan);
+    color: #000;
+    box-shadow:
+        0 0 25px rgba(0, 245, 255, 0.5),
+        0 6px 0 #0e7490;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 0 40px rgba(0, 245, 255, 0.7),
+        0 9px 0 #0e7490;
+}
+
+.btn-icon {
+    font-size: 1rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+footer p {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.45rem;
+    color: var(--neon-purple);
+    text-shadow: 0 0 10px var(--neon-purple);
+    animation: footer-pulse 3s ease-in-out infinite;
+}
+
+@keyframes footer-pulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ===== Modal - Arcade Victory Screen ===== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: modal-in 0.4s ease;
+}
+
+@keyframes modal-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+    border: 4px solid var(--neon-pink);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    animation: modal-bounce 0.5s ease;
+    box-shadow:
+        0 0 60px rgba(255, 45, 149, 0.5),
+        inset 0 0 60px rgba(255, 45, 149, 0.1);
+}
+
+@keyframes modal-bounce {
+    0% {
+        transform: scale(0.5) rotate(-5deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.1) rotate(2deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.modal-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    animation: victory-bounce 0.5s ease infinite alternate;
+    filter: drop-shadow(0 0 20px var(--neon-yellow));
+}
+
+@keyframes victory-bounce {
+    from {
+        transform: translateY(0) scale(1);
+    }
+
+    to {
+        transform: translateY(-15px) scale(1.1);
+    }
+}
+
+.modal-content h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: var(--neon-cyan);
+    text-shadow:
+        0 0 10px var(--neon-cyan),
+        0 0 20px var(--neon-cyan);
+    animation: text-glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes text-glow {
+    from {
+        text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+    }
+
+    to {
+        text-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink);
+    }
+}
+
+.modal-content p {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    line-height: 1.8;
+    font-size: 0.9rem;
+}
+
+/* ===== Timer Running State ===== */
+.timer-display.running .time {
+    animation: running-pulse 0.8s ease-in-out infinite;
+}
+
+@keyframes running-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+    }
+
+    50% {
+        transform: scale(1.08);
+        text-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink);
+    }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 480px) {
+    .container {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .subtitle {
+        font-size: 0.5rem;
+    }
+
+    .egg-options {
+        gap: 10px;
+    }
+
+    .egg-option {
+        padding: 14px 16px;
+    }
+
+    .option-title {
+        font-size: 0.55rem;
+    }
+
+    .option-desc {
+        display: none;
+    }
+
+    .timer-display {
+        width: 160px;
+        height: 160px;
+    }
+
+    .progress-ring {
+        width: 160px;
+        height: 160px;
+    }
+
+    .time {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        padding: 14px 24px;
+        font-size: 0.5rem;
+    }
+
+    .modal-content {
+        padding: 30px;
+    }
+
+    .modal-content h2 {
+        font-size: 0.8rem;
+    }
+}
+
+/* ===== Completion Animation ===== */
+.egg.complete {
+    animation: complete-celebrate 0.6s ease;
+}
+
+@keyframes complete-celebrate {
+    0% {
+        transform: translateX(-50%) rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: translateX(-50%) rotate(-15deg) scale(1.2);
+    }
+
+    50% {
+        transform: translateX(-50%) rotate(15deg) scale(1.2);
+    }
+
+    75% {
+        transform: translateX(-50%) rotate(-5deg) scale(1.1);
+    }
+
+    100% {
+        transform: translateX(-50%) rotate(0deg) scale(1);
+    }
+}
+
+/* ===== Sound Toggle Button ===== */
+.sound-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(179, 71, 255, 0.2));
+    border: 2px solid var(--neon-purple);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    z-index: 100;
+    box-shadow: 0 0 15px rgba(179, 71, 255, 0.3);
+}
+
+.sound-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(179, 71, 255, 0.5);
+}
+
+.sound-toggle.muted {
+    opacity: 0.5;
+    border-color: #666;
+}
+
+/* ===== QR Code Section ===== */
+.qr-section {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 100;
+}
+
+.qr-toggle {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(0, 245, 255, 0.3), rgba(0, 200, 255, 0.2));
+    border: 2px solid var(--neon-cyan);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+}
+
+.qr-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 245, 255, 0.5);
+}
+
+.qr-popup {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+    border: 3px solid var(--neon-cyan);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0, 245, 255, 0.4);
+    animation: popup-in 0.3s ease;
+}
+
+.qr-popup.hidden {
+    display: none;
+}
+
+@keyframes popup-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.qr-popup h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    color: var(--neon-cyan);
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.qr-popup canvas {
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.qr-popup p {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin-top: 12px;
+}

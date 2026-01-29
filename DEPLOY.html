@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Deploy Egg Master Timer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a1a;
+            --neon-pink: #ff2d95;
+            --neon-cyan: #00f5ff;
+            --neon-purple: #b347ff;
+            --neon-green: #39ff14;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #0a0a1a, #1a0a2e);
+            color: white;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(180deg, #ffea00, #ff6e27, #ff2d95);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+            filter: drop-shadow(0 0 20px rgba(255, 45, 149, 0.5));
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--neon-purple);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            box-shadow: 0 0 30px rgba(179, 71, 255, 0.3);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .step-number {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.2rem;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--neon-pink);
+        }
+
+        .step p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            background: rgba(0, 245, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: var(--neon-cyan);
+        }
+
+        a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--neon-cyan);
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--neon-pink);
+            border-color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .option-box {
+            background: rgba(179, 71, 255, 0.1);
+            border: 1px solid var(--neon-purple);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .option-box h4 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            color: var(--neon-green);
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+            text-decoration: none;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px 10px 10px 0;
+        }
+
+        .btn-primary {
+            background: linear-gradient(180deg, var(--neon-green), #22c55e);
+            color: #000;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 35px rgba(57, 255, 20, 0.6);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(180deg, var(--neon-purple), #7c3aed);
+            color: white;
+            box-shadow: 0 0 20px rgba(179, 71, 255, 0.4);
+        }
+
+        code {
+            display: block;
+            background: #000;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            color: var(--neon-green);
+            margin: 10px 0;
+            border: 1px solid var(--neon-green);
+            overflow-x: auto;
+        }
+
+        .files-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .files-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .files-list li::before {
+            content: '📁';
+        }
+
+        .files-list li:last-child::before {
+            content: '📄';
+        }
+
+        .success-box {
+            background: rgba(57, 255, 20, 0.1);
+            border: 2px solid var(--neon-green);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .success-box h3 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            color: var(--neon-green);
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer a {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🚀 DEPLOY YOUR EGG TIMER</h1>
+
+        <p style="text-align: center; margin-bottom: 30px; color: rgba(255,255,255,0.7);">
+            Follow these steps to make your Egg Master Timer accessible to everyone on the internet!
+        </p>
+
+        <!-- OPTION 1: NETLIFY DROP -->
+        <div class="step">
+            <div class="step-header">
+                <span class="step-number">01</span>
+                <span class="step-title">Netlify Drop (Easiest! No Account Needed)</span>
+            </div>
+
+            <div class="option-box">
+                <h4>⚡ FASTEST METHOD - 30 SECONDS</h4>
+                <p>Simply drag and drop your entire <span class="highlight">Egg_cooking_timer</span> folder!</p>
+            </div>
+
+            <p><strong>Steps:</strong></p>
+            <ol style="margin-left: 20px; line-height: 2;">
+                <li>Open <a href="https://app.netlify.com/drop" target="_blank">https://app.netlify.com/drop</a></li>
+                <li>Drag your <span class="highlight">E:\Egg_cooking_timer</span> folder onto the page</li>
+                <li>Wait for upload (takes ~10 seconds)</li>
+                <li>Copy your new URL (e.g., <span class="highlight">random-name-123.netlify.app</span>)</li>
+            </ol>
+
+            <a href="https://app.netlify.com/drop" target="_blank" class="btn btn-primary">
+                OPEN NETLIFY DROP →
+            </a>
+        </div>
+
+        <!-- OPTION 2: GITHUB PAGES -->
+        <div class="step">
+            <div class="step-header">
+                <span class="step-number">02</span>
+                <span class="step-title">GitHub Pages (Free Forever)</span>
+            </div>
+
+            <p>If you have a GitHub account, this gives you a permanent free URL!</p>
+
+            <ol style="margin-left: 20px; line-height: 2;">
+                <li>Create a new repository on <a href="https://github.com/new" target="_blank">GitHub</a></li>
+                <li>Name it something like <span class="highlight">egg-timer</span></li>
+                <li>Upload your files (index.html, index.css, app.js)</li>
+                <li>Go to Settings → Pages → Select "main" branch → Save</li>
+                <li>Your URL will be: <span class="highlight">https://yourusername.github.io/egg-timer</span></li>
+            </ol>
+
+            <a href="https://github.com/new" target="_blank" class="btn btn-secondary">
+                CREATE GITHUB REPO →
+            </a>
+        </div>
+
+        <!-- OPTION 3: VERCEL -->
+        <div class="step">
+            <div class="step-header">
+                <span class="step-number">03</span>
+                <span class="step-title">Vercel (Also Very Easy)</span>
+            </div>
+
+            <p>Another great free option with instant deployment!</p>
+
+            <ol style="margin-left: 20px; line-height: 2;">
+                <li>Go to <a href="https://vercel.com" target="_blank">vercel.com</a> and sign up (free)</li>
+                <li>Click "New Project"</li>
+                <li>Import from GitHub or upload directly</li>
+                <li>Get your URL: <span class="highlight">your-project.vercel.app</span></li>
+            </ol>
+        </div>
+
+        <!-- AFTER DEPLOYING -->
+        <div class="step">
+            <div class="step-header">
+                <span class="step-number">04</span>
+                <span class="step-title">Update Your QR Code</span>
+            </div>
+
+            <p>After deploying, update the URL in your app so the QR code works:</p>
+
+            <ol style="margin-left: 20px; line-height: 2;">
+                <li>Open <span class="highlight">app.js</span> in a text editor</li>
+                <li>Find this line near the top:</li>
+            </ol>
+
+            <code>const DEPLOYED_URL = 'https://egg-master-timer.netlify.app';</code>
+
+            <p>Change it to your actual deployed URL:</p>
+
+            <code>const DEPLOYED_URL = 'https://YOUR-ACTUAL-URL.netlify.app';</code>
+
+            <p>Save the file and re-upload if needed!</p>
+        </div>
+
+        <!-- FILES TO UPLOAD -->
+        <div class="step">
+            <div class="step-header">
+                <span class="step-number">📦</span>
+                <span class="step-title">Files You Need to Upload</span>
+            </div>
+
+            <ul class="files-list">
+                <li>index.html (Main page)</li>
+                <li>index.css (Styles)</li>
+                <li>app.js (Logic)</li>
+            </ul>
+
+            <p style="margin-top: 15px; color: rgba(255,255,255,0.6); font-size: 0.9rem;">
+                Note: You don't need to upload DEPLOY.html - that's just for instructions!
+            </p>
+        </div>
+
+        <!-- SUCCESS -->
+        <div class="success-box">
+            <h3>🎉 ONCE DEPLOYED</h3>
+            <p>Your QR code will work! Anyone can scan it to access your Egg Timer from their phone!</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--neon-cyan);">
+                Share the link with friends, family, or on social media! 🥚✨
+            </p>
+        </div>
+
+        <div class="footer">
+            <a href="index.html">← BACK TO EGG MASTER</a>
+        </div>
+    </div>
+</body>
+
+</html>

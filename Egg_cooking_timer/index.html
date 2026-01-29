@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Anime arcade style egg cooking timer - Perfect your eggs with retro game vibes and cool sound effects!">
+    <title>🎮 EGG MASTER - Arcade Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- Anime Arcade Background Effects -->
+    <div class="background-effects">
+        <!-- Stars -->
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+
+        <!-- Floating pixel eggs -->
+        <div class="pixel-egg"></div>
+        <div class="pixel-egg"></div>
+        <div class="pixel-egg"></div>
+
+        <!-- Scan lines -->
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+
+        <!-- Sparkles -->
+        <div class="sparkle">✦</div>
+        <div class="sparkle">✧</div>
+        <div class="sparkle">⭐</div>
+        <div class="sparkle">✦</div>
+
+        <!-- Steam (for cooking) -->
+        <div class="steam steam-1"></div>
+        <div class="steam steam-2"></div>
+        <div class="steam steam-3"></div>
+    </div>
+
+    <!-- Sound Toggle -->
+    <button class="sound-toggle" id="sound-toggle" title="Toggle Sound">
+        🔊
+    </button>
+
+    <!-- QR Code Section -->
+    <div class="qr-section">
+        <button class="qr-toggle" id="qr-toggle" title="Show QR Code">
+            📱
+        </button>
+        <div class="qr-popup hidden" id="qr-popup">
+            <h3>SCAN TO PLAY!</h3>
+            <canvas id="qr-canvas"></canvas>
+            <p>Share with friends!</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>🎮 EGG MASTER 🥚</h1>
+            <p class="subtitle">★ PERFECT EGGS EVERY TIME ★</p>
+        </header>
+
+        <main>
+            <!-- Egg Visual -->
+            <div class="egg-container">
+                <div class="pot">
+                    <div class="pot-water">
+                        <div class="water-bubble wb-1"></div>
+                        <div class="water-bubble wb-2"></div>
+                        <div class="water-bubble wb-3"></div>
+                        <div class="water-bubble wb-4"></div>
+                    </div>
+                    <div class="egg" id="egg">
+                        <div class="egg-shell">
+                            <div class="egg-highlight"></div>
+                        </div>
+                        <div class="egg-yolk" id="egg-yolk">
+                            <div class="yolk-shine"></div>
+                        </div>
+                    </div>
+                    <div class="pot-handle-left"></div>
+                    <div class="pot-handle-right"></div>
+                </div>
+            </div>
+
+            <!-- Timer Display -->
+            <div class="timer-display" id="timer-display">
+                <div class="timer-circle">
+                    <svg class="progress-ring" width="200" height="200">
+                        <defs>
+                            <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ff2d95" />
+                                <stop offset="50%" stop-color="#b347ff" />
+                                <stop offset="100%" stop-color="#00f5ff" />
+                            </linearGradient>
+                        </defs>
+                        <circle class="progress-ring-bg" cx="100" cy="100" r="90" />
+                        <circle class="progress-ring-circle" id="progress-circle" cx="100" cy="100" r="90" />
+                    </svg>
+                    <div class="timer-text">
+                        <span class="time" id="time-display">00:00</span>
+                        <span class="status" id="status-text">SELECT MODE</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Egg Options -->
+            <div class="egg-options" id="egg-options">
+                <button class="egg-option" id="soft-btn" data-time="240" data-type="soft">
+                    <div class="option-icon">🍳</div>
+                    <div class="option-info">
+                        <span class="option-title">SOFT BOILED</span>
+                        <span class="option-time">4 MIN</span>
+                    </div>
+                    <div class="option-desc">Runny yolk 💛</div>
+                </button>
+                <button class="egg-option" id="medium-btn" data-time="420" data-type="medium">
+                    <div class="option-icon">🥚</div>
+                    <div class="option-info">
+                        <span class="option-title">MEDIUM BOILED</span>
+                        <span class="option-time">7 MIN</span>
+                    </div>
+                    <div class="option-desc">Jammy yolk 🧡</div>
+                </button>
+                <button class="egg-option" id="hard-btn" data-time="720" data-type="hard">
+                    <div class="option-icon">🥚</div>
+                    <div class="option-info">
+                        <span class="option-title">HARD BOILED</span>
+                        <span class="option-time">12 MIN</span>
+                    </div>
+                    <div class="option-desc">Fully set 🤎</div>
+                </button>
+            </div>
+
+            <!-- Control Buttons -->
+            <div class="controls" id="controls">
+                <button class="btn btn-start" id="start-btn" disabled>
+                    <span class="btn-icon">▶</span>
+                    <span>START</span>
+                </button>
+                <button class="btn btn-reset hidden" id="reset-btn">
+                    <span class="btn-icon">↺</span>
+                    <span>RESET</span>
+                </button>
+            </div>
+        </main>
+
+        <footer>
+            <p>DROP EGG IN BOILING WATER → PRESS START!</p>
+        </footer>
+    </div>
+
+    <!-- Completion Modal -->
+    <div class="modal hidden" id="completion-modal">
+        <div class="modal-content">
+            <div class="modal-icon">🏆</div>
+            <h2>STAGE CLEAR!</h2>
+            <p id="modal-message">Your egg is perfectly cooked! Cool in ice water for best results.</p>
+            <button class="btn btn-primary" id="modal-close-btn">
+                <span>CONTINUE</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
