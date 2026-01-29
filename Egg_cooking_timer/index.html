@@ -5,46 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Anime arcade style egg cooking timer - Perfect your eggs with retro game vibes and cool sound effects!">
-    <title>🎮 EGG MASTER - Arcade Timer</title>
+        content="Cute anime pixel art egg cooking timer - Perfect your eggs with warm, cozy vibes!">
+    <title>🥚 Egg Timer ~ Cozy Kitchen</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@300;400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <!-- Anime Arcade Background Effects -->
+    <!-- Warm Anime Pixel Art Background -->
     <div class="background-effects">
-        <!-- Stars -->
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
+        <!-- Pixel Stars -->
+        <div class="pixel-star"></div>
+        <div class="pixel-star"></div>
+        <div class="pixel-star"></div>
+        <div class="pixel-star"></div>
+        <div class="pixel-star"></div>
+        <div class="pixel-star"></div>
+        <div class="pixel-star"></div>
+        <div class="pixel-star"></div>
+        <div class="pixel-star"></div>
+        <div class="pixel-star"></div>
 
-        <!-- Floating pixel eggs -->
+        <!-- Floating Hearts -->
+        <div class="pixel-heart">💛</div>
+        <div class="pixel-heart">🧡</div>
+        <div class="pixel-heart">💖</div>
+
+        <!-- Floating Pixel Eggs -->
         <div class="pixel-egg"></div>
         <div class="pixel-egg"></div>
         <div class="pixel-egg"></div>
 
-        <!-- Scan lines -->
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-
-        <!-- Sparkles -->
-        <div class="sparkle">✦</div>
-        <div class="sparkle">✧</div>
-        <div class="sparkle">⭐</div>
-        <div class="sparkle">✦</div>
+        <!-- Clouds -->
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
 
         <!-- Steam (for cooking) -->
         <div class="steam steam-1"></div>
@@ -54,7 +52,7 @@
 
     <!-- Sound Toggle -->
     <button class="sound-toggle" id="sound-toggle" title="Toggle Sound">
-        🔊
+        🔔
     </button>
 
     <!-- QR Code Section -->
@@ -63,7 +61,7 @@
             📱
         </button>
         <div class="qr-popup hidden" id="qr-popup">
-            <h3>SCAN TO PLAY!</h3>
+            <h3>♪ SCAN ME! ♪</h3>
             <canvas id="qr-canvas"></canvas>
             <p>Share with friends!</p>
         </div>
@@ -71,8 +69,8 @@
 
     <div class="container">
         <header>
-            <h1>🎮 EGG MASTER 🥚</h1>
-            <p class="subtitle">★ PERFECT EGGS EVERY TIME ★</p>
+            <h1>🥚 Egg Timer 🍳</h1>
+            <p class="subtitle">~ cozy kitchen vibes ~</p>
         </header>
 
         <main>
@@ -104,9 +102,9 @@
                     <svg class="progress-ring" width="200" height="200">
                         <defs>
                             <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#ff2d95" />
-                                <stop offset="50%" stop-color="#b347ff" />
-                                <stop offset="100%" stop-color="#00f5ff" />
+                                <stop offset="0%" stop-color="#ff9654" />
+                                <stop offset="50%" stop-color="#ffb3ba" />
+                                <stop offset="100%" stop-color="#ffe066" />
                             </linearGradient>
                         </defs>
                         <circle class="progress-ring-bg" cx="100" cy="100" r="90" />
@@ -114,7 +112,7 @@
                     </svg>
                     <div class="timer-text">
                         <span class="time" id="time-display">00:00</span>
-                        <span class="status" id="status-text">SELECT MODE</span>
+                        <span class="status" id="status-text">pick one!</span>
                     </div>
                 </div>
             </div>
@@ -124,26 +122,26 @@
                 <button class="egg-option" id="soft-btn" data-time="240" data-type="soft">
                     <div class="option-icon">🍳</div>
                     <div class="option-info">
-                        <span class="option-title">SOFT BOILED</span>
-                        <span class="option-time">4 MIN</span>
+                        <span class="option-title">Soft Boiled</span>
+                        <span class="option-time">4 min</span>
                     </div>
-                    <div class="option-desc">Runny yolk 💛</div>
+                    <div class="option-desc">runny yolk 💛</div>
                 </button>
                 <button class="egg-option" id="medium-btn" data-time="420" data-type="medium">
                     <div class="option-icon">🥚</div>
                     <div class="option-info">
-                        <span class="option-title">MEDIUM BOILED</span>
-                        <span class="option-time">7 MIN</span>
+                        <span class="option-title">Medium Boiled</span>
+                        <span class="option-time">7 min</span>
                     </div>
-                    <div class="option-desc">Jammy yolk 🧡</div>
+                    <div class="option-desc">jammy yolk 🧡</div>
                 </button>
                 <button class="egg-option" id="hard-btn" data-time="720" data-type="hard">
                     <div class="option-icon">🥚</div>
                     <div class="option-info">
-                        <span class="option-title">HARD BOILED</span>
-                        <span class="option-time">12 MIN</span>
+                        <span class="option-title">Hard Boiled</span>
+                        <span class="option-time">12 min</span>
                     </div>
-                    <div class="option-desc">Fully set 🤎</div>
+                    <div class="option-desc">fully set 🤎</div>
                 </button>
             </div>
 
@@ -151,28 +149,28 @@
             <div class="controls" id="controls">
                 <button class="btn btn-start" id="start-btn" disabled>
                     <span class="btn-icon">▶</span>
-                    <span>START</span>
+                    <span>Start!</span>
                 </button>
                 <button class="btn btn-reset hidden" id="reset-btn">
                     <span class="btn-icon">↺</span>
-                    <span>RESET</span>
+                    <span>Reset</span>
                 </button>
             </div>
         </main>
 
         <footer>
-            <p>DROP EGG IN BOILING WATER → PRESS START!</p>
+            <p>drop egg in boiling water ~ press start!</p>
         </footer>
     </div>
 
     <!-- Completion Modal -->
     <div class="modal hidden" id="completion-modal">
         <div class="modal-content">
-            <div class="modal-icon">🏆</div>
-            <h2>STAGE CLEAR!</h2>
-            <p id="modal-message">Your egg is perfectly cooked! Cool in ice water for best results.</p>
+            <div class="modal-icon">🎉</div>
+            <h2>Yay! All Done!</h2>
+            <p id="modal-message">Your egg is perfectly cooked! Cool in ice water for best results~</p>
             <button class="btn btn-primary" id="modal-close-btn">
-                <span>CONTINUE</span>
+                <span>Okay!</span>
             </button>
         </div>
     </div>

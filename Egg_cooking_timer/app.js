@@ -186,25 +186,58 @@ function playTone(frequency, startTime, duration, waveType = 'sine', volume = 0.
 // 🎯 EVENT LISTENERS
 // ==========================================
 
+// Helper function to handle both click and touch
+function addTouchClick(element, handler) {
+    let touchMoved = false;
+
+    element.addEventListener('touchstart', () => {
+        touchMoved = false;
+    }, { passive: true });
+
+    element.addEventListener('touchmove', () => {
+        touchMoved = true;
+    }, { passive: true });
+
+    element.addEventListener('touchend', (e) => {
+        if (!touchMoved) {
+            e.preventDefault();
+            handler();
+        }
+    });
+
+    element.addEventListener('click', (e) => {
+        // Only handle click if not from touch
+        if (e.pointerType !== 'touch') {
+            handler();
+        }
+    });
+}
+
 // Egg Option Selection
 eggOptions.forEach(option => {
-    option.addEventListener('click', () => selectOption(option));
+    addTouchClick(option, () => selectOption(option));
     option.addEventListener('mouseenter', () => playSound('hover'));
 });
 
 // Control Buttons
-startBtn.addEventListener('click', startTimer);
-resetBtn.addEventListener('click', resetTimer);
-modalCloseBtn.addEventListener('click', closeModal);
+addTouchClick(startBtn, startTimer);
+addTouchClick(resetBtn, resetTimer);
+addTouchClick(modalCloseBtn, closeModal);
 
 // Sound Toggle
-soundToggle.addEventListener('click', toggleSound);
+addTouchClick(soundToggle, toggleSound);
 
 // QR Code Toggle
-qrToggle.addEventListener('click', toggleQRPopup);
+addTouchClick(qrToggle, toggleQRPopup);
 
 // Close QR popup when clicking outside
 document.addEventListener('click', (e) => {
+    if (!qrPopup.contains(e.target) && e.target !== qrToggle) {
+        qrPopup.classList.add('hidden');
+    }
+});
+
+document.addEventListener('touchend', (e) => {
     if (!qrPopup.contains(e.target) && e.target !== qrToggle) {
         qrPopup.classList.add('hidden');
     }
@@ -404,7 +437,7 @@ function toggleSound() {
 
 // ⚡ SET YOUR DEPLOYED URL HERE! ⚡
 // After deploying to Netlify/Vercel/GitHub Pages, paste your URL below:
-const DEPLOYED_URL = 'https://egg-master-timer.netlify.app';
+const DEPLOYED_URL = 'https://datta4549.github.io/egg-timer/';
 // Examples:
 // 'https://your-app-name.netlify.app'
 // 'https://your-username.github.io/egg-timer'
