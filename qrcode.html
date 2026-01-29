@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥚 Egg Timer QR Code</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(180deg, #fff5e6 0%, #ffe4c9 50%, #ffcba4 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #4a3728;
+        }
+
+        /* Floating decorations */
+        .bg-decor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffe066;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        .star:nth-child(1) {
+            top: 10%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .star:nth-child(2) {
+            top: 20%;
+            left: 80%;
+            animation-delay: 0.5s;
+        }
+
+        .star:nth-child(3) {
+            top: 60%;
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+        .star:nth-child(4) {
+            top: 75%;
+            left: 85%;
+            animation-delay: 0.3s;
+        }
+
+        .star:nth-child(5) {
+            top: 40%;
+            left: 5%;
+            animation-delay: 0.8s;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float 4s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        .heart:nth-child(6) {
+            top: 25%;
+            left: 90%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(7) {
+            top: 70%;
+            left: 8%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.7);
+            border: 4px solid #6b4423;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 6px 6px 0 #5c3d2e;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: #6b4423;
+            text-shadow: 2px 2px 0 #ffe066;
+        }
+
+        .url {
+            font-size: 0.85rem;
+            color: #ff7b7b;
+            margin-bottom: 25px;
+            word-break: break-all;
+            font-weight: 700;
+        }
+
+        #qrcode {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 3px solid #6b4423;
+            box-shadow: 4px 4px 0 #5c3d2e;
+        }
+
+        .instructions {
+            font-size: 0.95rem;
+            color: #6b4f3a;
+            line-height: 1.8;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 28px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.5rem;
+            text-decoration: none;
+            border: 3px solid #6b4423;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: linear-gradient(180deg, #ffe066 0%, #ff9654 100%);
+            color: #6b4423;
+            box-shadow: 4px 4px 0 #5c3d2e;
+        }
+
+        .btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 #5c3d2e;
+        }
+
+        .btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 #5c3d2e;
+        }
+
+        .link {
+            margin-top: 20px;
+        }
+
+        .link a {
+            color: #ff7b7b;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px dashed #ff7b7b;
+        }
+
+        .link a:hover {
+            color: #ff9654;
+            border-color: #ff9654;
+        }
+
+        .emoji-decor {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-decor">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="heart">💛</div>
+        <div class="heart">🧡</div>
+    </div>
+
+    <div class="container">
+        <div class="emoji-decor">🥚✨🍳</div>
+        <h1>Egg Timer QR</h1>
+        <p class="url">datta4549.github.io/egg-timer/</p>
+
+        <div id="qrcode"></div>
+
+        <p class="instructions">
+            📱 Scan with your phone camera<br>
+            to open the Egg Timer app!
+        </p>
+
+        <button class="btn" onclick="downloadQR()">⬇️ Download</button>
+
+        <p class="link">
+            <a href="https://datta4549.github.io/egg-timer/" target="_blank">
+                → Open Website
+            </a>
+        </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script>
+        // Generate real, scannable QR code
+        const qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: "https://datta4549.github.io/egg-timer/",
+            width: 180,
+            height: 180,
+            colorDark: "#6b4423",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        // Download function
+        function downloadQR() {
+            const canvas = document.querySelector('#qrcode canvas');
+            if (canvas) {
+                const link = document.createElement('a');
+                link.download = 'egg-timer-qr-code.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            } else {
+                const img = document.querySelector('#qrcode img');
+                if (img) {
+                    const link = document.createElement('a');
+                    link.download = 'egg-timer-qr-code.png';
+                    link.href = img.src;
+                    link.click();
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
